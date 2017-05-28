@@ -5,14 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const BUILD_DIR         = path.resolve(__dirname, 'dist');
-const APP_DIR           = path.resolve(__dirname, 'src/client/app');
+const APP_DIR           = path.resolve(__dirname, 'client/app');
 
 
 module.exports = {
   entry: `${APP_DIR}/main.jsx`,
   output: {
     path: BUILD_DIR,
-    filename: '/js/[name].js',
+    filename: 'script.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -22,9 +22,7 @@ module.exports = {
       template: require('html-webpack-template'),
       appMountId: 'container'
     }),
-    new ExtractTextPlugin('/css/[name].css', {
-      allChunks: false
-    })
+    new ExtractTextPlugin({ filename: 'css/[name].css', disable: false, allChunks: true })
   ],
   module: {
     loaders: [
