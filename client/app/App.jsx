@@ -25,7 +25,8 @@ export default class App extends React.Component {
 
     return(
     <container>
-      <h1>Hello World</h1>
+      <h1>projecTimes</h1>
+      <p></p>
     </container>
     )
   }
